@@ -27,8 +27,8 @@ public class PostController {
     }
 
 //    adding a post
-    @PostMapping
-    public Post addPost(){
-        return postRepo.
+    @PostMapping("/post")
+    public Post addPost(@RequestBody Post post){
+        return postRepo.save(post);
     }
 }
