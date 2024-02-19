@@ -1,7 +1,11 @@
 package com.example.jobListing.Models;
 
-import java.util.Arrays;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Arrays;
+import java.util.Collection;
+
+@Document(collection = "jobPosts")
 public class Post {
     private String profile;
     private String desc;
