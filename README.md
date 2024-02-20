@@ -11,6 +11,9 @@ My aim for this project was to gain a fundamental understanding if the principle
         MongoDB Atlas
     </li>
 <li>
+        MongoDB Compass
+    </li>
+<li>
         IntelliJ
     </li>
 </ul>
