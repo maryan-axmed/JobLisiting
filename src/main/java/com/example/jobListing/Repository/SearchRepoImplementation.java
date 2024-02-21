@@ -32,8 +32,8 @@ public class SearchRepoImplementation implements SearchRepo {
         MongoCollection<Document> collection = database.getCollection("jobPosts");
         AggregateIterable<Document> result = collection.aggregate(Arrays.asList(new Document("$search",
                         new Document("text",
-                                new Document("query", "java")
-                                        .append("path", Arrays.asList("techs", "desc")))),
+                                new Document("query", text)
+                                        .append("path", Arrays.asList("techs", "desc", "profile")))),
                 new Document("$sort",
                         new Document("exp", 1L)),
                 new Document("$limit", 5L)));

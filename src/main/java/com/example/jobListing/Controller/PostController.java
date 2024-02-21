@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins ="http://localhost:3000")
 public class PostController {
 
     @Autowired
@@ -31,12 +32,14 @@ public class PostController {
     }
 
     @GetMapping("/allPosts/{text}")
+    @CrossOrigin
     public List<Post> search(@PathVariable String text){
         return searchRepo.findByText(text);
     }
 
 //    adding a post
     @PostMapping("/post")
+    @CrossOrigin
     public Post addPost(@RequestBody Post post){
         return postRepo.save(post);
     }
