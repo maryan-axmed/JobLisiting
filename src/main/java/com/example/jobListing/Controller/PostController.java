@@ -2,7 +2,8 @@ package com.example.jobListing.Controller;
 import javax.servlet.http.HttpServletResponse;
 
 import com.example.jobListing.Models.Post;
-import com.example.jobListing.PostRepo;
+import com.example.jobListing.Repository.PostRepo;
+import com.example.jobListing.Repository.SearchRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
@@ -14,6 +15,9 @@ public class PostController {
 
     @Autowired
     PostRepo postRepo;
+
+    @Autowired
+    SearchRepo searchRepo;
     @ApiIgnore
     @RequestMapping(value="/")
     public void redirect(HttpServletResponse response) throws IOException {
@@ -24,6 +28,11 @@ public class PostController {
     @CrossOrigin
     public List<Post> getAllPosts(){
         return postRepo.findAll();
+    }
+
+    @GetMapping("/allPosts/{text}")
+    public List<Post> search(@PathVariable String text){
+        return searchRepo.findByText(text);
     }
 
 //    adding a post
